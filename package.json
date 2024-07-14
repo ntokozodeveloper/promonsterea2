@@ -5,7 +5,9 @@
     "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\" \"npm run start-python\"",
     "start-frontend": "npm start --prefix web-based-ea-frontend",
     "start-backend": "npm start --prefix backend",
-    "start-python": "python realtime.py"
+    "start-python": "python realtime.py",
+    "build": "npm run build --prefix web-based-ea-frontend",
+    "clean": "rimraf build"
   },
   "dependencies": {
     "@deriv/deriv-api": "^1.0.15",
@@ -24,11 +26,18 @@
     "html-webpack-plugin": "^5.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-scripts": "^5.0.1",
     "sklearn": "^0.4.0",
+    "socket.io-client": "^4.7.5",
     "source-map-loader": "^5.0.0",
     "styled-components": "^6.1.11",
+    "web-vitals": "^4.2.1",
     "webpack": "^5.91.0",
     "websockets": "^0.2.0",
     "ws": "^8.17.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "rimraf": "^6.0.1"
   }
 }

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import axios from 'axios';
+import styled from 'styled-components';
 
 
 //Deriv Connection
@@ -54,9 +56,6 @@ websocket.addEventListener('error', (event) => {
 });
 
 // Get "/Trade" Route and Style it 
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import styled from 'styled-components';
 
 const Container = styled.div`
     max-width: 600px;
