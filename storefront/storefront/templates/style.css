@@ -1,0 +1,64 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('/storefront/storefront/static/bear-6771842_1280.jpg');
+    background-size: cover; /* Ensure the image covers the entire body */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    margin: 0;
+    padding: 0;
+}
+.nav {
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    padding: 1rem;
+    margin: 0;
+    border-radius: 3px;
+}
+.nav li {
+    list-style-type: none;
+    padding-right: 20px;
+}
+.nav li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+.nav li a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+.content {
+    flex: 3;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+.sidebar {
+    flex: 1;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    margin-left: 1rem;
+}
+.layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+@media (max-width: 768px) {
+    .layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        margin-left: 0;
+    }
+}
