@@ -5,10 +5,10 @@
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": "src",
-      "DistributionDir": "build",
-      "BuildCommand": "npm run build",
-      "StartCommand": "npm start"
+      "SourceDir": "web-based-ea-frontend/src",
+      "DistributionDir": "web-based-ea-frontend/build",
+      "BuildCommand": "npm run build:amplify",
+      "StartCommand": "npm run start"
     }
   },
   "providers": [

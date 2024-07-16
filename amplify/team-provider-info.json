@@ -22,7 +22,7 @@
       "function": {
         "themonsterea0cc5dd7e": {
           "deploymentBucketName": "amplify-themonsterea-dev-355a9-deployment",
-          "s3Key": "amplify-builds/themonsterea0cc5dd7e-5a6e56396d75796d525a-build.zip"
+          "s3Key": "amplify-builds/themonsterea0cc5dd7e-54464a39665163787870-build.zip"
         }
       },
       "auth": {

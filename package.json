@@ -6,8 +6,10 @@
     "start-frontend": "npm start --prefix web-based-ea-frontend",
     "start-backend": "npm start --prefix backend",
     "start-python": "python realtime.py",
-    "build": "npm run build --prefix web-based-ea-frontend",
-    "clean": "rimraf build"
+    "build": "npm run build:amplify",
+    "clean": "rimraf build",
+    "build:frontend": "npm run build --prefix web-based-ea-frontend",
+    "build:amplify": "npx react-scripts build"
   },
   "dependencies": {
     "@deriv/deriv-api": "^1.0.15",
@@ -31,6 +33,7 @@
     "socket.io-client": "^4.7.5",
     "source-map-loader": "^5.0.0",
     "styled-components": "^6.1.11",
+    "underscore": "^1.13.6",
     "web-vitals": "^4.2.1",
     "webpack": "^5.91.0",
     "websockets": "^0.2.0",

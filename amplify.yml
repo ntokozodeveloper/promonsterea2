@@ -6,9 +6,9 @@ frontend:
         - npm install
     build:
       commands:
-        - npm run build
+        - npm run build:amplify
   artifacts:
-    baseDirectory: build
+    baseDirectory: web-based-ea-frontend/build
     files:
       - '**/*'
   cache:
