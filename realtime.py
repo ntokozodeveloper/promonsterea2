@@ -505,8 +505,9 @@ async def trade():
 
     return jsonify(result)
 
+# Get Trade data from "/trade" route and style it in React
 def get_real_trade_data():
-    # Placeholder for actual data retrieval logic / This Should not affect how Trading Signals are displayed.
+    # Placeholder for actual data retrieval logic / This Should not affect how Trading Signals are displayed (at /trade).
     trade_signal = 'BUY'  # Retrieve actual trade signal
     entry_price = 1.2345  # Retrieve actual entry price
     stop_loss = 1.2300  # Retrieve actual stop loss
@@ -541,7 +542,6 @@ def get_trade_data():
     }
 
     return jsonify(result)
-
 # Sending Order Request to MT5
 
 if __name__ == '__main__':
