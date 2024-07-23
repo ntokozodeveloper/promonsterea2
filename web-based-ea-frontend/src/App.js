@@ -2,6 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { getHistoricalData, executeTrade } from './services/api';
 import io from 'socket.io-client';
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+//import Home from './pages/Home';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
+
+// Add line to route homepage : <Route exact path="/" component={Home} />
+
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route path="/about" component={About} />
+        <Route component={NotFound} />
+      </Switch>
+    </Router>
+  );
+}
+
 
 //Deriv Connection
 const WebSocket = require('ws');
@@ -55,30 +73,7 @@ websocket.addEventListener('error', (event) => {
 
 const socket = io('http://localhost:3000');
 
-function App() {
-  const [tradeData, setTradeData] = useState([]);
 
-  useEffect(() => {
-    socket.on('tradeUpdate', (data) => {
-      setTradeData((prevData) => [...prevData, data]);
-    });
-
-    return () => {
-      socket.off('tradeUpdate');
-    };
-  }, []);
-
-  return (
-    <div>
-      <h1>Trade Data</h1>
-      <ul>
-        {tradeData.map((trade, index) => (
-          <li key={index}>{JSON.stringify(trade)}</li>
-        ))}
-      </ul>
-    </div>
-  );
-}
 
 
 export default App;
