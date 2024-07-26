@@ -14,7 +14,7 @@ function App() {
     <Router>
       <Switch>
         <Route path="/about" component={About} />
-        <Route component={NotFound} />
+        <Route path="*" component={NotFound} />
       </Switch>
     </Router>
   );

@@ -30,6 +30,12 @@
       },
       "api": {
         "amplifyapi": {}
+      },
+      "analytics": {
+        "themonsterea": {}
+      },
+      "storage": {
+        "s35e39ca36": {}
       }
     }
   }

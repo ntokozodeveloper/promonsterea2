@@ -348,6 +348,92 @@ def generate_trade_signals(signals):
     return trade_signal, entry_price, probability, interval
 
 ## Integrating EA with AI
+# Training The AI Model (Intergrating AI with the EA)
+
+# Function to create and train a RandomForestRegressor model
+def create_and_train_model(data, target):
+    scaler = MinMaxScaler()
+    data_scaled = scaler.fit_transform(data)
+
+    X_train, X_test, y_train, y_test = train_test_split(data_scaled, target, test_size=0.2, random_state=42)
+
+    model = RandomForestRegressor(n_estimators=100, random_state=42)
+    model.fit(X_train, y_train)
+
+    return model, scaler
+
+# Function to download data from Yahoo Finance
+def download_data(ticker, interval, start_date, end_date):
+    return yf.download(ticker, start=start_date, end=end_date, interval=interval)
+
+# Function to combine data (placeholder)
+def combine_data(yf_data, deriv_data):
+    return yf_data
+
+# Function to process data (placeholder)
+def process_data(*args):
+    return pd.DataFrame()
+
+# Function to generate trade signals (placeholder)
+def generate_trade_signals(*args):
+    return 'BUY', 1.0, 95, '1d'
+
+# Training the Model on Yahoo Finance Data 
+forex_pairs = [
+    'GBPJPY',
+    'EURJPY',
+    'AUDJPY',
+    'EURUSD',
+    'GBPUSD',
+    'AUDUSD',
+    'USDJPY',
+    'USDZAR',
+    'USDCAD',
+    'USDCHF',
+    'EURGBP',
+    'EURCHF',
+    'GBPAUD',
+    'EURNZD',
+    'NZDJPY',
+    'CADCHF',
+    'GBPNZD'
+]
+
+if __name__ == "__main__":
+    interval = '1d'  # You can change this to your desired interval
+    end_date = datetime.now()
+    start_date = end_date - timedelta(days=60)
+
+    start_date_str = start_date.strftime('%Y-%m-%d')
+    end_date_str = end_date.strftime('%Y-%m-%d')
+
+    for symbol in forex_pairs:
+        ticker_symbol = f'{symbol}=X'
+
+    yf_data = download_data(ticker_symbol, interval, start_date_str, end_date_str)
+    deriv_data = None  # Assume we have another function to fetch this data
+    combined_data = combine_data(yf_data, deriv_data)
+
+    if combined_data is not None:
+        signals = process_data(None, {"1d": combined_data}, ticker_symbol, interval, start_date_str, end_date_str)
+        trade_signal, entry_price, probability, interval = generate_trade_signals(signals)
+        logging.info(f"Trade Signal: {trade_signal}, Entry Price: {entry_price}, Probability: {probability}%, Interval: {interval}")
+
+        # Training data using EMA_50, Stochastic, and Bollinger Bands (Simple, Forex Rule. Buy Low, Sell High. Sell High and Buy Low)
+            # Ensure the indicators are in the data before using them
+        if all(indicator in combined_data.columns for indicator in ['EMA_50', 'RSI', 'Lower_BB', 'Upper_BB', '%K', '%D']):
+                features = combined_data[['Close', 'Volume', 'EMA_50', 'RSI', 'Lower_BB', 'Upper_BB', '%K', '%D']]
+                target = combined_data['Close'].shift(-1)  # Predict next day's close price
+
+                features.dropna(inplace=True)
+                target = target[features.index]
+
+                model, scaler = create_and_train_model(features, target)
+                logging.info("Model training completed")
+        else:
+                logging.error("Indicators are missing from the data.")
+
+# Posting the data to the Server (placeholder)
 # The idea with Yahoo Finance is getting historical data from the past 60 Days
 # Supported by YF by Default
 
@@ -419,6 +505,43 @@ async def trade():
 
     return jsonify(result)
 
+# Get Trade data from "/trade" route and style it in React
+def get_real_trade_data():
+    # Placeholder for actual data retrieval logic / This Should not affect how Trading Signals are displayed (at /trade).
+    trade_signal = 'BUY'  # Retrieve actual trade signal
+    entry_price = 1.2345  # Retrieve actual entry price
+    stop_loss = 1.2300  # Retrieve actual stop loss
+    take_profit = 1.2400  # Retrieve actual take profit
+    probability = 85.0  # Calculate actual probability
+    lot_sizes = [0.01, 0.1, 1.0]  # Calculate recommended lot sizes
+    timeframe_displayed = '1h'  # Retrieve actual timeframe
+
+    return {
+        'trade_signal': trade_signal,
+        'entry_price': entry_price,
+        'stop_loss': stop_loss,
+        'take_profit': take_profit,
+        'probability': probability,
+        'lot_sizes': lot_sizes,
+        'timeframe_displayed': timeframe_displayed
+    }
+
+@app.route('/getTradeData', methods=['GET'])
+def get_trade_data():
+    trade_data = get_real_trade_data()
+
+    result = {
+        'status': 'success',
+        'message': f'Trade signal: {trade_data["trade_signal"]}',
+        'entry_price': trade_data['entry_price'],
+        'stop_loss': trade_data['stop_loss'],
+        'take_profit': trade_data['take_profit'],
+        'probability': f'{trade_data["probability"]}%',
+        'recommended_lot_sizes': trade_data['lot_sizes'],
+        'timeframe_displayed': trade_data['timeframe_displayed'],
+    }
+
+    return jsonify(result)
 # Sending Order Request to MT5
 
 if __name__ == '__main__':

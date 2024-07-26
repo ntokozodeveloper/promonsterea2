@@ -1,0 +1,21 @@
+{
+    "appName": "themonsterea",
+    "roleName": "pinpointLambdaRolef56cb716",
+    "cloudformationPolicyName": "cloudformationPolicyf56cb716",
+    "cloudWatchPolicyName": "cloudWatchPolicyf56cb716",
+    "pinpointPolicyName": "pinpointPolicyf56cb716",
+    "authPolicyName": "pinpoint_amplify_f56cb716",
+    "unauthPolicyName": "pinpoint_amplify_f56cb716",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    }
+}
