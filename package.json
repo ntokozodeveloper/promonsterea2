@@ -1,6 +1,7 @@
 {
   "name": "web-based-ea",
   "version": "1.0.0",
+  "homepage": "/",
   "scripts": {
     "start": "concurrently \"npm run start-frontend\" \"npm run start-backend\" \"npm run start-python\"",
     "start-frontend": "npm start --prefix web-based-ea-frontend",
@@ -19,6 +20,7 @@
     "body-parser": "^1.20.2",
     "concurrently": "*",
     "debug": "^4.3.5",
+    "django-express": "^1.0.0",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "express-rate-limit": "^7.2.0",
@@ -26,6 +28,8 @@
     "flask": "^0.2.10",
     "helmet": "^7.1.0",
     "html-webpack-plugin": "^5.6.0",
+    "nth-check": "^2.1.1",
+    "postcss": "^8.4.40",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.25.1",
