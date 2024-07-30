@@ -38,5 +38,46 @@
         "s35e39ca36": {}
       }
     }
+  },
+  "live": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-themonsterea-live-25bf8-authRole",
+      "UnauthRoleArn": "arn:aws:iam::992382648947:role/amplify-themonsterea-live-25bf8-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::992382648947:role/amplify-themonsterea-live-25bf8-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-themonsterea-live-25bf8-deployment",
+      "UnauthRoleName": "amplify-themonsterea-live-25bf8-unauthRole",
+      "StackName": "amplify-themonsterea-live-25bf8",
+      "StackId": "arn:aws:cloudformation:us-east-1:992382648947:stack/amplify-themonsterea-live-25bf8/95185d30-4e8a-11ef-aa7d-12fcfd9808a7",
+      "AmplifyAppId": "d3daglls15uod2",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-themonsterea-live-25bf8-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    },
+    "categories": {
+      "auth": {
+        "themonsterea": {}
+      },
+      "function": {
+        "themonsterea0cc5dd7e": {
+          "deploymentBucketName": "amplify-themonsterea-live-25bf8-deployment",
+          "s3Key": "amplify-builds/themonsterea0cc5dd7e-54464a39665163787870-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3daglls15uod2",
+          "type": "manual"
+        }
+      },
+      "analytics": {
+        "themonsterea": {}
+      },
+      "api": {
+        "amplifyapi": {},
+        "themonsterea": {}
+      },
+      "storage": {
+        "s35e39ca36": {}
+      }
+    }
   }
 }
