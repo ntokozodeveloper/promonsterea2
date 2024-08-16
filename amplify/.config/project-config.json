@@ -1,17 +1,17 @@
 {
-  "projectName": "themonsterea",
+  "providers": [
+    "awscloudformation"
+  ],
+  "projectName": "promonsterea",
   "version": "3.1",
   "frontend": "javascript",
   "javascript": {
     "framework": "react",
     "config": {
-      "SourceDir": "web-based-ea-frontend/src",
-      "DistributionDir": "web-based-ea-frontend/build",
-      "BuildCommand": "npm run build:amplify",
-      "StartCommand": "npm run start"
+      "SourceDir": "backend",
+      "DistributionDir": "build",
+      "BuildCommand": "npm.cmd run-script build",
+      "StartCommand": "npm.cmd run-script start"
     }
-  },
-  "providers": [
-    "awscloudformation"
-  ]
+  }
 }

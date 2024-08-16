@@ -77,40 +77,6 @@
       "type": "manual"
     }
   },
-  "parameters": {
-    "AMPLIFY_function_themonsterea0cc5dd7e_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "themonsterea0cc5dd7e"
-        }
-      ]
-    },
-    "AMPLIFY_function_themonsterea0cc5dd7e_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "themonsterea0cc5dd7e"
-        }
-      ]
-    },
-    "AMPLIFY_hosting_amplifyhosting_appId": {
-      "usedBy": [
-        {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
-        }
-      ]
-    },
-    "AMPLIFY_hosting_amplifyhosting_type": {
-      "usedBy": [
-        {
-          "category": "hosting",
-          "resourceName": "amplifyhosting"
-        }
-      ]
-    }
-  },
   "storage": {
     "s35e39ca36": {
       "dependsOn": [],
